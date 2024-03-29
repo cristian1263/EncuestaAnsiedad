@@ -1,599 +1,343 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Ansiedad</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-		/>
-		<style>
-			body {
-				background-color: #f2f2f2;
-			}
-			h1 {
-				color: #333;
-				text-align: center;
-				margin-top: 50px;
-			}
-			.form-control {
-				border-color: #ced4da;
-			}
-			.form-label {
-				text-align: left;
-				color: #333;
-			}
 
-			.form-check {
-				text-align:justify;
-				color: #333;
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Ansiedad</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<style>
+		body {
+			background-color: #f2f2f2;
+		}
 
-			}
+		h1 {
+			color: #333;
+			text-align: center;
+			margin-top: 50px;
+		}
+
+		.form-control {
+			border-color: #ced4da;
+		}
+
+		.form-label {
+			text-align: left;
+			color: #333;
+		}
+
+		.form-check {
+			text-align: justify;
+			color: #333;
+
+		}
+
+		.btn-check:focus+.btn-primary,
+		.btn-primary:focus {
+			outline: none !important;
+			box-shadow: none;
+		}
+
+		.respuesta-faltante {
+			border: 1px solid #ff9999;
 			
-			.btn-check:focus + .btn-primary,
-			.btn-primary:focus {
-				outline: none !important;
-				box-shadow: none;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<h1 class="mb-5">Encuesta</h1>
-			<form>
-				<div class="mb-3">
-					<b><label for="Nombreinput" class="form-label">Nombre</label></b>
-					<input
-						type="text"
-						class="form-control"
-						id="Nombreinput"
-						placeholder="Ingresa tu nombre completo"
-					/>
-				</div>
-				<div class="mb-3">
-					<b><label for="emailInput" class="form-label">Email</label></b>
-					<input
-						type="email"
-						class="form-control"
-						id="emailInput"
-						placeholder="Ingresa tu correo electronico"
-					/>
-				</div>
-				<div class="container">
-					<div class="card h-100">
-						<div class="card-body d-flex flex-wrap">
-							<h2 class="card-title w-100">Preguntas</h2>
-							<div class="mb-3">
-								<b><label class="form-label d-block">1. Torpe o entumecido</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 1">
-									<input type="radio" name="respuesta1" id="no1" value="0" class="btn-check" />
-									<label for="no1" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta1" id="leve1" value="1" class="btn-check" />
-									<label for="leve1" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta1"
-										id="moderado1"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado1" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta1"
-										id="bastante1"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante1" class="btn btn-outline-primary">Bastante</label>
-								</div>
+			padding: 5px;
+			
+		}
+	</style>
+</head>
 
-								<b><label class="form-label d-block">2. Acalorado</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 2">
-									<input type="radio" name="respuesta2" id="no2" value="0" class="btn-check" />
-									<label for="no2" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta2" id="leve2" value="1" class="btn-check" />
-									<label for="leve2" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta2"
-										id="moderado2"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado2" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta2"
-										id="bastante2"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante2" class="btn btn-outline-primary">Bastante</label>
-								</div>
+<body>
+	<div class="container">
+		<h1 class="mb-5">Encuesta</h1>
+		<form>
+			<div class="mb-3">
+				<b><label for="Nombreinput" class="form-label">Nombre</label></b>
+				<input type="text" class="form-control" id="Nombreinput" placeholder="Ingresa tu nombre completo" />
+			</div>
+			<div class="mb-3">
+				<b><label for="emailInput" class="form-label">Email</label></b>
+				<input type="email" class="form-control" id="emailInput" placeholder="Ingresa tu correo electronico" />
+			</div>
+			<div class="container">
+				<div class="card h-100">
+					<div class="card-body d-flex flex-wrap">
+						<h2 class="card-title w-100">Preguntas</h2>
+						<div class="mb-3">
+							<b><label class="form-label d-block">1. Torpe o entumecido</label></b>
+							<div class="btn-group" role="group" id="divRespuesta1" aria-label="Respuesta 1">
+								<input type="radio" name="respuesta1" id="no1" value="0" class="btn-check" />
+								<label for="no1" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta1" id="leve1" value="1" class="btn-check" />
+								<label for="leve1" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta1" id="moderado1" value="2" class="btn-check" />
+								<label for="moderado1" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta1" id="bastante1" value="3" class="btn-check" />
+								<label for="bastante1" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b><label class="form-label d-block">3. Temblor en las piernas</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 3">
-									<input type="radio" name="respuesta3" id="no3" value="0" class="btn-check" />
-									<label for="no3" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta3" id="leve3" value="1" class="btn-check" />
-									<label for="leve3" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta3"
-										id="moderado3"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado3" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta3"
-										id="bastante3"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante3" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">2. Acalorado</label></b>
+							<div class="btn-group" role="group" id="divRespuesta2" aria-label="Respuesta 2">
+								<input type="radio" name="respuesta2" id="no2" value="0" class="btn-check" />
+								<label for="no2" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta2" id="leve2" value="1" class="btn-check" />
+								<label for="leve2" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta2" id="moderado2" value="2" class="btn-check" />
+								<label for="moderado2" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta2" id="bastante2" value="3" class="btn-check" />
+								<label for="bastante2" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b><label class="form-label d-block">4. Incapaz de relajarse</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 4">
-									<input type="radio" name="respuesta4" id="no4" value="0" class="btn-check" />
-									<label for="no4" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta4" id="leve4" value="1" class="btn-check" />
-									<label for="leve4" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta4"
-										id="moderado4"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado4" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta4"
-										id="bastante4"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante4" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">3. Temblor en las piernas</label></b>
+							<div class="btn-group" role="group" id="divRespuesta3" aria-label="Respuesta 3">
+								<input type="radio" name="respuesta3" id="no3" value="0" class="btn-check" />
+								<label for="no3" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta3" id="leve3" value="1" class="btn-check" />
+								<label for="leve3" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta3" id="moderado3" value="2" class="btn-check" />
+								<label for="moderado3" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta3" id="bastante3" value="3" class="btn-check" />
+								<label for="bastante3" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b><label class="form-label d-block">5. Con temor a que ocurra lo peor</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 5">
-									<input type="radio" name="respuesta5" id="no5" value="0" class="btn-check" />
-									<label for="no5" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta5" id="leve5" value="1" class="btn-check" />
-									<label for="leve5" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta5"
-										id="moderado5"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado5" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta5"
-										id="bastante5"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante5" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">4. Incapaz de relajarse</label></b>
+							<div class="btn-group" role="group" id="divRespuesta4" aria-label="Respuesta 4">
+								<input type="radio" name="respuesta4" id="no4" value="0" class="btn-check" />
+								<label for="no4" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta4" id="leve4" value="1" class="btn-check" />
+								<label for="leve4" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta4" id="moderado4" value="2" class="btn-check" />
+								<label for="moderado4" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta4" id="bastante4" value="3" class="btn-check" />
+								<label for="bastante4" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b
-									><label class="form-label d-block">6. Mareado, o que se le va la cabeza</label></b
-								>
-								<div class="btn-group" role="group" aria-label="Respuesta 6">
-									<input type="radio" name="respuesta6" id="no6" value="0" class="btn-check" />
-									<label for="no6" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta6" id="leve6" value="1" class="btn-check" />
-									<label for="leve6" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta6"
-										id="moderado6"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado6" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta6"
-										id="bastante6"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante6" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">5. Con temor a que ocurra lo peor</label></b>
+							<div class="btn-group" role="group" id="divRespuesta5" aria-label="Respuesta 5">
+								<input type="radio" name="respuesta5" id="no5" value="0" class="btn-check" />
+								<label for="no5" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta5" id="leve5" value="1" class="btn-check" />
+								<label for="leve5" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta5" id="moderado5" value="2" class="btn-check" />
+								<label for="moderado5" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta5" id="bastante5" value="3" class="btn-check" />
+								<label for="bastante5" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b
-									><label class="form-label d-block"
-										>7. Con latidos del corazón fuertes y acelerados</label
-									></b
-								>
-								<div class="btn-group" role="group" aria-label="Respuesta 7">
-									<input type="radio" name="respuesta7" id="no7" value="0" class="btn-check" />
-									<label for="no7" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta7" id="leve7" value="1" class="btn-check" />
-									<label for="leve7" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta7"
-										id="moderado7"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado7" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta7"
-										id="bastante7"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante7" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">6. Mareado, o que se le va la cabeza</label></b>
+							<div class="btn-group" role="group" id="divRespuesta6" aria-label="Respuesta 6">
+								<input type="radio" name="respuesta6" id="no6" value="0" class="btn-check" />
+								<label for="no6" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta6" id="leve6" value="1" class="btn-check" />
+								<label for="leve6" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta6" id="moderado6" value="2" class="btn-check" />
+								<label for="moderado6" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta6" id="bastante6" value="3" class="btn-check" />
+								<label for="bastante6" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b><label class="form-label d-block">8. Inestable</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 8">
-									<input type="radio" name="respuesta8" id="no8" value="0" class="btn-check" />
-									<label for="no8" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta8" id="leve8" value="1" class="btn-check" />
-									<label for="leve8" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta8"
-										id="moderado8"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado8" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta8"
-										id="bastante8"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante8" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">7. Con latidos del corazón fuertes y
+									acelerados</label></b>
+							<div class="btn-group" role="group" id="divRespuesta7" aria-label="Respuesta 7">
+								<input type="radio" name="respuesta7" id="no7" value="0" class="btn-check" />
+								<label for="no7" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta7" id="leve7" value="1" class="btn-check" />
+								<label for="leve7" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta7" id="moderado7" value="2" class="btn-check" />
+								<label for="moderado7" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta7" id="bastante7" value="3" class="btn-check" />
+								<label for="bastante7" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b><label class="form-label d-block">9. Atemorizado o asustado</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 9">
-									<input type="radio" name="respuesta9" id="no9" value="0" class="btn-check" />
-									<label for="no9" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta9" id="leve9" value="1" class="btn-check" />
-									<label for="leve9" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta9"
-										id="moderado9"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado9" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta9"
-										id="bastante9"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante9" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">8. Inestable</label></b>
+							<div class="btn-group" role="group" id="divRespuesta8" aria-label="Respuesta 8">
+								<input type="radio" name="respuesta8" id="no8" value="0" class="btn-check" />
+								<label for="no8" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta8" id="leve8" value="1" class="btn-check" />
+								<label for="leve8" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta8" id="moderado8" value="2" class="btn-check" />
+								<label for="moderado8" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta8" id="bastante8" value="3" class="btn-check" />
+								<label for="bastante8" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b><label class="form-label d-block">10. Nervioso</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 10">
-									<input type="radio" name="respuesta10" id="no10" value="0" class="btn-check" />
-									<label for="no10" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta10" id="leve10" value="1" class="btn-check" />
-									<label for="leve10" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta10"
-										id="moderado10"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado10" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta10"
-										id="bastante10"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante10" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">9. Atemorizado o asustado</label></b>
+							<div class="btn-group" role="group" id="divRespuesta9" aria-label="Respuesta 9">
+								<input type="radio" name="respuesta9" id="no9" value="0" class="btn-check" />
+								<label for="no9" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta9" id="leve9" value="1" class="btn-check" />
+								<label for="leve9" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta9" id="moderado9" value="2" class="btn-check" />
+								<label for="moderado9" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta9" id="bastante9" value="3" class="btn-check" />
+								<label for="bastante9" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b><label class="form-label d-block">11. Con sensación de bloqueo</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 11">
-									<input type="radio" name="respuesta11" id="no11" value="0" class="btn-check" />
-									<label for="no11" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta11" id="leve11" value="1" class="btn-check" />
-									<label for="leve11" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta11"
-										id="moderado11"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado11" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta11"
-										id="bastante11"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante11" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">10. Nervioso</label></b>
+							<div class="btn-group" role="group" id="divRespuesta10" aria-label="Respuesta 10">
+								<input type="radio" name="respuesta10" id="no10" value="0" class="btn-check" />
+								<label for="no10" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta10" id="leve10" value="1" class="btn-check" />
+								<label for="leve10" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta10" id="moderado10" value="2" class="btn-check" />
+								<label for="moderado10" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta10" id="bastante10" value="3" class="btn-check" />
+								<label for="bastante10" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b><label class="form-label d-block">12. Con temblores en las manos</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 12">
-									<input type="radio" name="respuesta12" id="no12" value="0" class="btn-check" />
-									<label for="no12" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta12" id="leve12" value="1" class="btn-check" />
-									<label for="leve12" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta12"
-										id="moderado12"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado12" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta12"
-										id="bastante12"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante12" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">11. Con sensación de bloqueo</label></b>
+							<div class="btn-group" role="group" id="divRespuesta11" aria-label="Respuesta 11">
+								<input type="radio" name="respuesta11" id="no11" value="0" class="btn-check" />
+								<label for="no11" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta11" id="leve11" value="1" class="btn-check" />
+								<label for="leve11" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta11" id="moderado11" value="2" class="btn-check" />
+								<label for="moderado11" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta11" id="bastante11" value="3" class="btn-check" />
+								<label for="bastante11" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b><label class="form-label d-block">13. Inquieto, inseguro</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 13">
-									<input type="radio" name="respuesta13" id="no13" value="0" class="btn-check" />
-									<label for="no13" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta13" id="leve13" value="1" class="btn-check" />
-									<label for="leve13" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta13"
-										id="moderado13"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado13" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta13"
-										id="bastante13"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante13" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">12. Con temblores en las manos</label></b>
+							<div class="btn-group" role="group" id="divRespuesta12" aria-label="Respuesta 12">
+								<input type="radio" name="respuesta12" id="no12" value="0" class="btn-check" />
+								<label for="no12" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta12" id="leve12" value="1" class="btn-check" />
+								<label for="leve12" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta12" id="moderado12" value="2" class="btn-check" />
+								<label for="moderado12" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta12" id="bastante12" value="3" class="btn-check" />
+								<label for="bastante12" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b><label class="form-label d-block">14. Con miedo a perder el control</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 14">
-									<input type="radio" name="respuesta14" id="no14" value="0" class="btn-check" />
-									<label for="no14" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta14" id="leve14" value="1" class="btn-check" />
-									<label for="leve14" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta14"
-										id="moderado14"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado14" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta14"
-										id="bastante14"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante14" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">13. Inquieto, inseguro</label></b>
+							<div class="btn-group" role="group" id="divRespuesta13" aria-label="Respuesta 13">
+								<input type="radio" name="respuesta13" id="no13" value="0" class="btn-check" />
+								<label for="no13" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta13" id="leve13" value="1" class="btn-check" />
+								<label for="leve13" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta13" id="moderado13" value="2" class="btn-check" />
+								<label for="moderado13" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta13" id="bastante13" value="3" class="btn-check" />
+								<label for="bastante13" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b><label class="form-label d-block">15. Con sensación de ahogo</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 15">
-									<input type="radio" name="respuesta15" id="no15" value="0" class="btn-check" />
-									<label for="no15" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta15" id="leve15" value="1" class="btn-check" />
-									<label for="leve15" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta15"
-										id="moderado15"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado15" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta15"
-										id="bastante15"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante15" class="btn btn-outline-primary">Bastante</label>
-								</div>
-								<b><label class="form-label d-block">16. Con temor a morir</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 16">
-									<input type="radio" name="respuesta16" id="no16" value="0" class="btn-check" />
-									<label for="no16" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta16" id="leve16" value="1" class="btn-check" />
-									<label for="leve16" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta16"
-										id="moderado16"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado16" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta16"
-										id="bastante16"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante16" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">14. Con miedo a perder el control</label></b>
+							<div class="btn-group" role="group" id="divRespuesta14" aria-label="Respuesta 14">
+								<input type="radio" name="respuesta14" id="no14" value="0" class="btn-check" />
+								<label for="no14" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta14" id="leve14" value="1" class="btn-check" />
+								<label for="leve14" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta14" id="moderado14" value="2" class="btn-check" />
+								<label for="moderado14" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta14" id="bastante14" value="3" class="btn-check" />
+								<label for="bastante14" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b><label class="form-label d-block">17. Con miedo</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 17">
-									<input type="radio" name="respuesta17" id="no17" value="0" class="btn-check" />
-									<label for="no17" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta17" id="leve17" value="1" class="btn-check" />
-									<label for="leve17" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta17"
-										id="moderado17"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado17" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta17"
-										id="bastante17"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante17" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">15. Con sensación de ahogo</label></b>
+							<div class="btn-group" role="group" id="divRespuesta15" aria-label="Respuesta 15">
+								<input type="radio" name="respuesta15" id="no15" value="0" class="btn-check" />
+								<label for="no15" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta15" id="leve15" value="1" class="btn-check" />
+								<label for="leve15" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta15" id="moderado15" value="2" class="btn-check" />
+								<label for="moderado15" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta15" id="bastante15" value="3" class="btn-check" />
+								<label for="bastante15" class="btn btn-outline-primary">Bastante</label>
+							</div>
+							<b><label class="form-label d-block">16. Con temor a morir</label></b>
+							<div class="btn-group" role="group" id="divRespuesta16" aria-label="Respuesta 16">
+								<input type="radio" name="respuesta16" id="no16" value="0" class="btn-check" />
+								<label for="no16" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta16" id="leve16" value="1" class="btn-check" />
+								<label for="leve16" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta16" id="moderado16" value="2" class="btn-check" />
+								<label for="moderado16" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta16" id="bastante16" value="3" class="btn-check" />
+								<label for="bastante16" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b><label class="form-label d-block">18. Con problemas digestivos</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 18">
-									<input type="radio" name="respuesta18" id="no18" value="0" class="btn-check" />
-									<label for="no18" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta18" id="leve18" value="1" class="btn-check" />
-									<label for="leve18" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta18"
-										id="moderado18"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado18" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta18"
-										id="bastante18"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante18" class="btn btn-outline-primary">Bastante</label>
-								</div>
-								<b><label class="form-label d-block">19. Con desvanecimientos</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 19">
-									<input type="radio" name="respuesta19" id="no19" value="0" class="btn-check" />
-									<label for="no19" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta19" id="leve19" value="1" class="btn-check" />
-									<label for="leve19" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta19"
-										id="moderado19"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado19" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta19"
-										id="bastante19"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante19" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">17. Con miedo</label></b>
+							<div class="btn-group" role="group" id="divRespuesta17" aria-label="Respuesta 17">
+								<input type="radio" name="respuesta17" id="no17" value="0" class="btn-check" />
+								<label for="no17" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta17" id="leve17" value="1" class="btn-check" />
+								<label for="leve17" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta17" id="moderado17" value="2" class="btn-check" />
+								<label for="moderado17" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta17" id="bastante17" value="3" class="btn-check" />
+								<label for="bastante17" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b><label class="form-label d-block">20. Con rubor facial</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 20">
-									<input type="radio" name="respuesta20" id="no20" value="0" class="btn-check" />
-									<label for="no20" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta20" id="leve20" value="1" class="btn-check" />
-									<label for="leve20" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta20"
-										id="moderado20"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado20" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta20"
-										id="bastante20"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante20" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">18. Con problemas digestivos</label></b>
+							<div class="btn-group" role="group" id="divRespuesta18" aria-label="Respuesta 18">
+								<input type="radio" name="respuesta18" id="no18" value="0" class="btn-check" />
+								<label for="no18" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta18" id="leve18" value="1" class="btn-check" />
+								<label for="leve18" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta18" id="moderado18" value="2" class="btn-check" />
+								<label for="moderado18" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta18" id="bastante18" value="3" class="btn-check" />
+								<label for="bastante18" class="btn btn-outline-primary">Bastante</label>
+							</div>
+							<b><label class="form-label d-block">19. Con desvanecimientos</label></b>
+							<div class="btn-group" role="group" id="divRespuesta19" aria-label="Respuesta 19">
+								<input type="radio" name="respuesta19" id="no19" value="0" class="btn-check" />
+								<label for="no19" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta19" id="leve19" value="1" class="btn-check" />
+								<label for="leve19" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta19" id="moderado19" value="2" class="btn-check" />
+								<label for="moderado19" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta19" id="bastante19" value="3" class="btn-check" />
+								<label for="bastante19" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<b><label class="form-label d-block">21. Con sudores, fríos o calientes</label></b>
-								<div class="btn-group" role="group" aria-label="Respuesta 21">
-									<input type="radio" name="respuesta21" id="no21" value="0" class="btn-check" />
-									<label for="no21" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta21" id="leve21" value="1" class="btn-check" />
-									<label for="leve21" class="btn btn-outline-primary">Leve</label>
-									<input
-										type="radio"
-										name="respuesta21"
-										id="moderado21"
-										value="2"
-										class="btn-check"
-									/>
-									<label for="moderado21" class="btn btn-outline-primary">Moderado</label>
-									<input
-										type="radio"
-										name="respuesta21"
-										id="bastante21"
-										value="3"
-										class="btn-check"
-									/>
-									<label for="bastante21" class="btn btn-outline-primary">Bastante</label>
-								</div>
+							<b><label class="form-label d-block">20. Con rubor facial</label></b>
+							<div class="btn-group" role="group" id="divRespuesta20" aria-label="Respuesta 20">
+								<input type="radio" name="respuesta20" id="no20" value="0" class="btn-check" />
+								<label for="no20" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta20" id="leve20" value="1" class="btn-check" />
+								<label for="leve20" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta20" id="moderado20" value="2" class="btn-check" />
+								<label for="moderado20" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta20" id="bastante20" value="3" class="btn-check" />
+								<label for="bastante20" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-								<div class="form-check">
-									<br />
-									<input type="checkbox" id="checkTerms" class="form-check-input" />
+							<b><label class="form-label d-block">21. Con sudores, fríos o calientes</label></b>
+							<div class="btn-group" role="group" id="divRespuesta21" aria-label="Respuesta 21">
+								<input type="radio" name="respuesta21" id="no21" value="0" class="btn-check" />
+								<label for="no21" class="btn btn-outline-primary">No</label>
+								<input type="radio" name="respuesta21" id="leve21" value="1" class="btn-check" />
+								<label for="leve21" class="btn btn-outline-primary">Leve</label>
+								<input type="radio" name="respuesta21" id="moderado21" value="2" class="btn-check" />
+								<label for="moderado21" class="btn btn-outline-primary">Moderado</label>
+								<input type="radio" name="respuesta21" id="bastante21" value="3" class="btn-check" />
+								<label for="bastante21" class="btn btn-outline-primary">Bastante</label>
+							</div>
 
-									<label for="checkTerms" class="form-check-label">
-										Acepto el tratamiento de mis datos personales para recopilar y analizar la
-        								información que proporciono, de acuerdo con la política de privacidad.
-									</label>
-								</div>
-								<br>
-								<div class="text-center">
-									<button type="submit" class="btn btn-primary">Enviar</button>
-								</div>
-								</div>
-							
+							<div class="form-check">
+								<br />
+								<input type="checkbox" id="checkTerms" class="form-check-input" />
+
+								<label for="checkTerms" class="form-check-label">
+									Acepto el tratamiento de mis datos personales para recopilar y analizar la
+									información que proporciono, de acuerdo con la política de privacidad.
+								</label>
+							</div>
+							<br>
+							<div class="text-center">
+								<button id="btnEnviar" type="button" class="btn btn-primary">Enviar</button>
+								<div id="resultado"></div>
+							</div>
 						</div>
+
 					</div>
-				
-			</form>
-		</div>
-		<script src="index.js"></script>
-	</body>
+				</div>
+
+		</form>
+	</div>
+	<script src="index.js"></script>
+</body>
+
 </html>
