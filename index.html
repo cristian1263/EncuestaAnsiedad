@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>La Ansiedad</title>
+		<title>Ansiedad</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -22,8 +22,16 @@
 				border-color: #ced4da;
 			}
 			.form-label {
+				text-align: left;
 				color: #333;
 			}
+
+			.form-check {
+				text-align:justify;
+				color: #333;
+
+			}
+			
 			.btn-check:focus + .btn-primary,
 			.btn-primary:focus {
 				outline: none !important;
@@ -36,7 +44,7 @@
 			<h1 class="mb-5">Encuesta</h1>
 			<form>
 				<div class="mb-3">
-					<label for="Nombreinput" class="form-label">Nombre</label>
+					<b><label for="Nombreinput" class="form-label">Nombre</label></b>
 					<input
 						type="text"
 						class="form-control"
@@ -45,7 +53,7 @@
 					/>
 				</div>
 				<div class="mb-3">
-					<label for="emailInput" class="form-label">Email</label>
+					<b><label for="emailInput" class="form-label">Email</label></b>
 					<input
 						type="email"
 						class="form-control"
@@ -54,9 +62,9 @@
 					/>
 				</div>
 				<div class="container">
-					<div class="card">
-						<div class="card-body">
-							<h2 class="mt-4">Preguntas</h2>
+					<div class="card h-100">
+						<div class="card-body d-flex flex-wrap">
+							<h2 class="card-title w-100">Preguntas</h2>
 							<div class="mb-3">
 								<b><label class="form-label d-block">1. Torpe o entumecido</label></b>
 								<div class="btn-group" role="group" aria-label="Respuesta 1">
@@ -378,15 +386,15 @@
 
 								<b><label class="form-label d-block">14. Con miedo a perder el control</label></b>
 								<div class="btn-group" role="group" aria-label="Respuesta 14">
-									<input type="radio" name="respuesta14" id="no14" value="" class="btn-check" />
+									<input type="radio" name="respuesta14" id="no14" value="0" class="btn-check" />
 									<label for="no14" class="btn btn-outline-primary">No</label>
-									<input type="radio" name="respuesta14" id="leve14" value="" class="btn-check" />
+									<input type="radio" name="respuesta14" id="leve14" value="1" class="btn-check" />
 									<label for="leve14" class="btn btn-outline-primary">Leve</label>
 									<input
 										type="radio"
 										name="respuesta14"
 										id="moderado14"
-										value=""
+										value="2"
 										class="btn-check"
 									/>
 									<label for="moderado14" class="btn btn-outline-primary">Moderado</label>
@@ -394,7 +402,7 @@
 										type="radio"
 										name="respuesta14"
 										id="bastante14"
-										value=""
+										value="3"
 										class="btn-check"
 									/>
 									<label for="bastante14" class="btn btn-outline-primary">Bastante</label>
@@ -566,21 +574,24 @@
 									<label for="bastante21" class="btn btn-outline-primary">Bastante</label>
 								</div>
 
-								<br />
 								<div class="form-check">
+									<br />
 									<input type="checkbox" id="checkTerms" class="form-check-input" />
-									<b
-										><label for="checkTerms" class="form-check-label font-weight-bold text-justify">
-											Autorizas para tratar tus datos personales con el fin de recopilar y analizar
-											la información que nos proporcionarás.
-										</label></b
-									>
+
+									<label for="checkTerms" class="form-check-label">
+										Acepto el tratamiento de mis datos personales para recopilar y analizar la
+        								información que proporciono, de acuerdo con la política de privacidad.
+									</label>
 								</div>
-							</div>
+								<br>
+								<div class="text-center">
+									<button type="submit" class="btn btn-primary">Enviar</button>
+								</div>
+								</div>
+							
 						</div>
 					</div>
-				</div>
-				<button type="submit" class="btn btn-primary">Enviar</button>
+				
 			</form>
 		</div>
 		<script src="index.js"></script>
