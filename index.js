@@ -56,9 +56,16 @@ $(document).ready(function () {
 			$('#nombre').removeClass('respuesta-faltante');
 		}
 
-		if (!$('#emailInput').val()) {
+    var email = $('#emailInput').val();
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+
+		if (!$('#emailInput').val() || !emailRegex.test($('#emailInput').val())) {
 			faltanRespuestas += 'emailInput, ';
 			$('#email').addClass('respuesta-faltante');
+        MSJERROR4();
+          return "";
 		} else {
 			$('#email').removeClass('respuesta-faltante');
 		}
@@ -151,4 +158,12 @@ const MSJERROR3 = () => {
 		text: 'Error al guardar los datos',
 		icon: 'error',
 	});
+};
+
+const MSJERROR4 = ()  => {
+  Swal.fire({
+    title:'Ups',
+    text: 'Debes ingresar un correo electrónico válido',
+    icon: 'error',
+  });
 };
