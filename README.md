@@ -1,5 +1,5 @@
 ##### Español
-### Encuesta de Investigación sobre Ansiedad y Calidad del Sueño 👩‍🔬🛌
+## Encuesta de Investigación sobre Ansiedad y Calidad del Sueño 👩‍🔬🛌
 
 Este proyecto consiste en una encuesta diseñada para investigar la relación entre la ansiedad y la calidad del sueño en estudiantes universitarios durante el segundo semestre de 2024 en una universidad privada. La encuesta recopila datos sobre diferentes síntomas de ansiedad y su intensidad percibida, así como también información básica del participante.
 
@@ -24,7 +24,7 @@ Este proyecto ha sido desarrollado por CH & LG.
 ---
 
 ##### Inglés
-### Research Survey on Anxiety and Sleep Quality 👩‍🔬🛌
+## Research Survey on Anxiety and Sleep Quality 👩‍🔬🛌
 
 This project consists of a survey designed to investigate the relationship between anxiety and sleep quality in university students during the second semester of 2024 at a private university. The survey collects data on different anxiety symptoms and their perceived intensity, as well as basic participant information.
 
