@@ -34,26 +34,26 @@ $(document).ready(function () {
 			if (!$("input[name='respuesta" + i + "']:checked").val()) {
 				faltanRespuestas += 'respuesta' + i + ', ';
 
-				$('#divRespuesta' + i).addClass('respuesta-faltante');
+				$('#divRespuesta' + i).css('background-color', '#ffcccc');
 			} else {
-				$('#divRespuesta' + i).removeClass('respuesta-faltante');
+				$('#divRespuesta' + i).css('background-color', '');
 			}
 		}
 
 		if (!$('#checkTerms').is(':checked')) {
-			$('#check').addClass('respuesta-faltante');
+      $('#checkTerms').css('background-color', '#ffcccc');
 			faltanRespuestas += 'checkTerms, ';
 			MSJERROR2();
 			//alert('Debes aceptar el tratamiento de datos');
 		} else {
-			$('#check').removeClass('respuesta-faltante');
+			$('#checkTerms').css('background-color', '');
 		}
 
 		if (!$('#Nombreinput').val()) {
 			faltanRespuestas += 'Nombreinput, ';
-			$('#nombre').addClass('respuesta-faltante');
+      $('#Nombreinput').css('background-color', '#ffcccc');
 		} else {
-			$('#nombre').removeClass('respuesta-faltante');
+      $('#Nombreinput').css('background-color', '');
 		}
 
     var email = $('#emailInput').val();
@@ -63,11 +63,13 @@ $(document).ready(function () {
 
 		if (!$('#emailInput').val() || !emailRegex.test($('#emailInput').val())) {
 			faltanRespuestas += 'emailInput, ';
-			$('#email').addClass('respuesta-faltante');
+       $('#emailInput').css('background-color', '#ffcccc');
+      if (!emailRegex.test($('#emailInput').val()) && $('#emailInput').val() && faltanRespuestas == 'emailInput, ') {
         MSJERROR4();
-          return "";
+        return "";
+      }  
 		} else {
-			$('#email').removeClass('respuesta-faltante');
+      $('#emailInput').css('background-color', '');
 		}
 
 		if (faltanRespuestas == 'checkTerms, ') {
@@ -120,7 +122,7 @@ $(document).ready(function () {
 
 				var encuestaJSON = JSON.stringify(encuestaData);
 
-				//console.log(encuestaJSON);
+				console.log("Prueba sin terminos");
 
 				SaveUser(encuestaData);
 			}
@@ -133,7 +135,12 @@ const MSJOK = () => {
 		title: 'buen Trabajo',
 		text: 'Encuesta enviada correctamente',
 		icon: 'success',
-	});
+    confirmButtonColor: '#0d6efd'
+	}).then((result) => {
+      if (result.isConfirmed) {
+        location.reload();
+      } 
+  });
 };
 
 const MSJERROR1 = () => {
@@ -141,6 +148,7 @@ const MSJERROR1 = () => {
 		title: 'Ups',
 		text: 'Complete todos los campos',
 		icon: 'error',
+    confirmButtonColor: '#0d6efd'
 	});
 };
 
@@ -149,6 +157,7 @@ const MSJERROR2 = () => {
 		title: 'Ups',
 		text: 'Debes aceptar el tratamiento de datos',
 		icon: 'error',
+    confirmButtonColor: '#0d6efd'
 	});
 };
 
@@ -157,6 +166,7 @@ const MSJERROR3 = () => {
 		title: 'Ups',
 		text: 'Error al guardar los datos',
 		icon: 'error',
+    confirmButtonColor: '#0d6efd'
 	});
 };
 
@@ -165,5 +175,6 @@ const MSJERROR4 = ()  => {
     title:'Ups',
     text: 'Debes ingresar un correo electrónico válido',
     icon: 'error',
+    confirmButtonColor: '#0d6efd'
   });
 };
