@@ -132,7 +132,7 @@ $(document).ready(function () {
 
 const MSJOK = () => {
 	Swal.fire({
-		title: 'buen Trabajo',
+		title: 'Buen trabajo',
 		text: 'Encuesta enviada correctamente',
 		icon: 'success',
     confirmButtonColor: '#0d6efd'
