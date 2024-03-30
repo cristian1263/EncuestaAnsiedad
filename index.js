@@ -148,7 +148,7 @@ Respuesta17: respuesta17,
 Respuesta18: respuesta18,
 Respuesta19: respuesta19,
 Respuesta20: respuesta20,
-Respuesta21: respuesta21
+Respuesta21: respuesta21,
 
 					TerminosAceptados: terminosAceptados,
 				};
