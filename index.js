@@ -66,7 +66,8 @@ $(document).ready(function () {
             } else {
                 mensaje = "Ansiedad severa";
             }
-            $('#resultado').html('</br><div class="alert alert-info" role="alert">Su resultado es: ' + sumaRespuestas + '<br>' + mensaje + '</div>');
+            alert("Respuestas guardadas");
+          /*   $('#resultado').html('</br><div class="alert alert-info" role="alert">Su resultado es: ' + sumaRespuestas + '<br>' + mensaje + '</div>');*/
         }
     });
 });
