@@ -101,22 +101,55 @@ $(document).ready(function () {
 
 			var nombre = $('#Nombreinput').val();
 			var email = $('#emailInput').val();
-			var respuestas = {};
-
-			$("[id^='divRespuesta']").each(function (index, element) {
-				var respuesta = $(element).find('input:checked').val();
-				respuestas['Pregunta ' + (index + 1)] = {
-					Respuesta: respuesta,
-				};
-			});
-
+        var respuesta1 = $("input[name='respuesta1']:checked").val();
+    var respuesta2 = $("input[name='respuesta2']:checked").val();
+    var respuesta3 = $("input[name='respuesta3']:checked").val();
+    var respuesta4 = $("input[name='respuesta4']:checked").val();
+    var respuesta5 = $("input[name='respuesta5']:checked").val();
+    var respuesta6 = $("input[name='respuesta6']:checked").val();
+    var respuesta7 = $("input[name='respuesta7']:checked").val();
+    var respuesta8 = $("input[name='respuesta8']:checked").val();
+    var respuesta9 = $("input[name='respuesta9']:checked").val();
+    var respuesta10 = $("input[name='respuesta10']:checked").val();
+    var respuesta11 = $("input[name='respuesta11']:checked").val();
+    var respuesta12 = $("input[name='respuesta12']:checked").val();
+    var respuesta13 = $("input[name='respuesta13']:checked").val();
+    var respuesta14 = $("input[name='respuesta14']:checked").val();
+    var respuesta15 = $("input[name='respuesta15']:checked").val();
+    var respuesta16 = $("input[name='respuesta16']:checked").val();
+    var respuesta17 = $("input[name='respuesta17']:checked").val();
+    var respuesta18 = $("input[name='respuesta18']:checked").val();
+    var respuesta19 = $("input[name='respuesta19']:checked").val();
+    var respuesta20 = $("input[name='respuesta20']:checked").val();
+    var respuesta21 = $("input[name='respuesta21']:checked").val();
 			var terminosAceptados = $('#checkTerms').is(':checked');
 
 			if (terminosAceptados) {
 				var encuestaData = {
 					Nombre: nombre,
 					Email: email,
-					Respuestas: respuestas,
+					Respuesta1: respuesta1,
+Respuesta2: respuesta2,
+Respuesta3: respuesta3,
+Respuesta4: respuesta4,
+Respuesta5: respuesta5,
+Respuesta6: respuesta6,
+Respuesta7: respuesta7,
+Respuesta8: respuesta8,
+Respuesta9: respuesta9,
+Respuesta10: respuesta10,
+Respuesta11: respuesta11,
+Respuesta12: respuesta12,
+Respuesta13: respuesta13,
+Respuesta14: respuesta14,
+Respuesta15: respuesta15,
+Respuesta16: respuesta16,
+Respuesta17: respuesta17,
+Respuesta18: respuesta18,
+Respuesta19: respuesta19,
+Respuesta20: respuesta20,
+Respuesta21: respuesta21
+
 					TerminosAceptados: terminosAceptados,
 				};
 
