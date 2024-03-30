@@ -101,27 +101,27 @@ $(document).ready(function () {
 
 			var nombre = $('#Nombreinput').val();
 			var email = $('#emailInput').val();
-        var respuesta1 = $("input[name='respuesta1']:checked").val();
-    var respuesta2 = $("input[name='respuesta2']:checked").val();
-    var respuesta3 = $("input[name='respuesta3']:checked").val();
-    var respuesta4 = $("input[name='respuesta4']:checked").val();
-    var respuesta5 = $("input[name='respuesta5']:checked").val();
-    var respuesta6 = $("input[name='respuesta6']:checked").val();
-    var respuesta7 = $("input[name='respuesta7']:checked").val();
-    var respuesta8 = $("input[name='respuesta8']:checked").val();
-    var respuesta9 = $("input[name='respuesta9']:checked").val();
-    var respuesta10 = $("input[name='respuesta10']:checked").val();
-    var respuesta11 = $("input[name='respuesta11']:checked").val();
-    var respuesta12 = $("input[name='respuesta12']:checked").val();
-    var respuesta13 = $("input[name='respuesta13']:checked").val();
-    var respuesta14 = $("input[name='respuesta14']:checked").val();
-    var respuesta15 = $("input[name='respuesta15']:checked").val();
-    var respuesta16 = $("input[name='respuesta16']:checked").val();
-    var respuesta17 = $("input[name='respuesta17']:checked").val();
-    var respuesta18 = $("input[name='respuesta18']:checked").val();
-    var respuesta19 = $("input[name='respuesta19']:checked").val();
-    var respuesta20 = $("input[name='respuesta20']:checked").val();
-    var respuesta21 = $("input[name='respuesta21']:checked").val();
+      var respuesta1 = parseInt($("input[name='respuesta1']:checked").val());
+var respuesta2 = parseInt($("input[name='respuesta2']:checked").val());
+var respuesta3 = parseInt($("input[name='respuesta3']:checked").val());
+var respuesta4 = parseInt($("input[name='respuesta4']:checked").val());
+var respuesta5 = parseInt($("input[name='respuesta5']:checked").val());
+var respuesta6 = parseInt($("input[name='respuesta6']:checked").val());
+var respuesta7 = parseInt($("input[name='respuesta7']:checked").val());
+var respuesta8 = parseInt($("input[name='respuesta8']:checked").val());
+var respuesta9 = parseInt($("input[name='respuesta9']:checked").val());
+var respuesta10 = parseInt($("input[name='respuesta10']:checked").val());
+var respuesta11 = parseInt($("input[name='respuesta11']:checked").val());
+var respuesta12 = parseInt($("input[name='respuesta12']:checked").val());
+var respuesta13 = parseInt($("input[name='respuesta13']:checked").val());
+var respuesta14 = parseInt($("input[name='respuesta14']:checked").val());
+var respuesta15 = parseInt($("input[name='respuesta15']:checked").val());
+var respuesta16 = parseInt($("input[name='respuesta16']:checked").val());
+var respuesta17 = parseInt($("input[name='respuesta17']:checked").val());
+var respuesta18 = parseInt($("input[name='respuesta18']:checked").val());
+var respuesta19 = parseInt($("input[name='respuesta19']:checked").val());
+var respuesta20 = parseInt($("input[name='respuesta20']:checked").val());
+var respuesta21 = parseInt($("input[name='respuesta21']:checked").val());
 			var terminosAceptados = $('#checkTerms').is(':checked');
 
 			if (terminosAceptados) {
@@ -149,13 +149,14 @@ Respuesta18: respuesta18,
 Respuesta19: respuesta19,
 Respuesta20: respuesta20,
 Respuesta21: respuesta21,
-
+Total: sumaRespuestas,
+          Resultado: mensaje,
 					TerminosAceptados: terminosAceptados,
 				};
 
 				var encuestaJSON = JSON.stringify(encuestaData);
 
-				console.log("Prueba sin terminos");
+				console.log("OK");
 
 				SaveUser(encuestaData);
 			}
