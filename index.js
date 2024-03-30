@@ -11,19 +11,20 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-const db = firebase.firestore();
+let db = firebase.firestore();
 
-const saveAnswers = (answer) => {
-    db.collection("respuestas").add({
-        answer
-    })
-
-  .then(function(docRef) {
-    console.log("Document written with ID: ", docRef.id)
-  })
-
-	
-}
+const SaveUser = (user) => {
+	db.collection('Encuestados')
+		.add({
+			user,
+		})
+		.then((docRef) => {
+			MSJOK();
+		})
+		.catch((error) => {
+			MSJERROR3();
+		});
+};
 
 $(document).ready(function () {
 	$('#btnEnviar').click(function () {
@@ -42,7 +43,8 @@ $(document).ready(function () {
 		if (!$('#checkTerms').is(':checked')) {
 			$('#check').addClass('respuesta-faltante');
 			faltanRespuestas += 'checkTerms, ';
-			alert('Debes aceptar el tratamiento de datos');
+			MSJERROR2();
+			//alert('Debes aceptar el tratamiento de datos');
 		} else {
 			$('#check').removeClass('respuesta-faltante');
 		}
@@ -64,7 +66,8 @@ $(document).ready(function () {
 		if (faltanRespuestas == 'checkTerms, ') {
 			return '';
 		} else if (faltanRespuestas !== '') {
-			alert('Complete todos los campos');
+			MSJERROR1();
+			//alert('Complete todos los campos');
 		} else {
 			var sumaRespuestas = 0;
 
@@ -81,7 +84,8 @@ $(document).ready(function () {
 			} else {
 				mensaje = 'Ansiedad severa';
 			}
-			alert('Respuestas guardadas, muchas gracias por participar');
+			//MSJOK();
+			//alert('Respuestas guardadas, muchas gracias por participar');
 			/*   $('#resultado').html('</br><div class="alert alert-info" role="alert">Su resultado es: ' + sumaRespuestas + '<br>' + mensaje + '</div>');*/
 
 			/*--------Creación del Objeto JSON--------*/
@@ -109,8 +113,42 @@ $(document).ready(function () {
 
 				var encuestaJSON = JSON.stringify(encuestaData);
 
-				console.log(encuestaJSON);
+				//console.log(encuestaJSON);
+
+				SaveUser(encuestaData);
 			}
 		}
 	});
 });
+
+const MSJOK = () => {
+	Swal.fire({
+		title: 'buen Trabajo',
+		text: 'Encuesta enviada correctamente',
+		icon: 'success',
+	});
+};
+
+const MSJERROR1 = () => {
+	Swal.fire({
+		title: 'Ups',
+		text: 'Complete todos los campos',
+		icon: 'error',
+	});
+};
+
+const MSJERROR2 = () => {
+	Swal.fire({
+		title: 'Ups',
+		text: 'Debes aceptar el tratamiento de datos',
+		icon: 'error',
+	});
+};
+
+const MSJERROR3 = () => {
+	Swal.fire({
+		title: 'Ups',
+		text: 'Error al guardar los datos',
+		icon: 'error',
+	});
+};
