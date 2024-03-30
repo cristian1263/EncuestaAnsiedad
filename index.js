@@ -13,6 +13,18 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 
+const saveAnswers = (answer) => {
+    db.collection("respuestas").add({
+        answer
+    })
+
+  .then(function(docRef) {
+    console.log("Document written with ID: ", docRef.id)
+  })
+
+	
+}
+
 $(document).ready(function () {
 	$('#btnEnviar').click(function () {
 		var faltanRespuestas = '';
