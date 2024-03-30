@@ -58,6 +58,42 @@ $(document).ready(function () {
             }
             alert("Respuestas guardadas, muchas gracias por participar");
           /*   $('#resultado').html('</br><div class="alert alert-info" role="alert">Su resultado es: ' + sumaRespuestas + '<br>' + mensaje + '</div>');*/
+        
+
+             /*--------Creación del Objeto JSON--------*/ 
+
+            var nombre = $("#Nombreinput").val();
+            var email = $("#emailInput").val();
+            var respuestas = {};
+    
+            $("[id^='divRespuesta']").each(function (index, element) {
+                var respuesta = $(element).find("input:checked").val();
+                respuestas["Pregunta " + (index + 1)] = {
+                    "Respuesta": respuesta
+                };
+            });
+    
+            var terminosAceptados = $("#checkTerms").is(":checked");
+    
+            if (terminosAceptados) {
+    
+                var encuestaData = {
+                    "Nombre": nombre,
+                    "Email": email,
+                    "Respuestas": respuestas,
+                    "TerminosAceptados": terminosAceptados
+                };
+        
+                var encuestaJSON = JSON.stringify(encuestaData);
+        
+                console.log(encuestaJSON);
+              }
+           
+       
+        
+        
         }
     });
 });
+
+
