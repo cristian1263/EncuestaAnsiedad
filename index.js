@@ -173,6 +173,7 @@ const MSJOK = () => {
 	}).then((result) => {
       if (result.isConfirmed) {
         location.reload();
+		window.location.href = 'cierre.html';
       } 
   });
 };
