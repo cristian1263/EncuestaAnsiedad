@@ -6,10 +6,10 @@ This project consists of a survey designed to investigate the relationship betwe
 
 ## Table of Contents
 1. [Description](#description)
-2. [Technologies Used](#technologies-used)
-3. [Execution Instructions](#execution-instructions)
+2. [Technologies Used](#technologies-used-🖥️)
+3. [Execution Instructions](#execution-instructions-🚀)
 4. [Data Storage](#data-storage)
-5. [Contributors](#contributors)
+5. [Contributors](#contributors-👥)
 
 ---
 
@@ -47,7 +47,7 @@ The data provided by survey participants is stored in a Firebase database in JSO
 ## Contributors 👥
 
 * **Luis David Gordon Rodríguez** - [Ldav05](https://github.com/Ldav05)
-* **Cristián Camilo Hernandez Rodríguez** - [cristian1263](https://github.com/cristian1263)
+* **Cristian Camilo Hernandez Rodríguez** - [cristian1263](https://github.com/cristian1263)
 
 ---
 
