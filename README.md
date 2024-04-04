@@ -34,7 +34,7 @@ The survey consists of a series of questions related to anxiety symptoms and sle
 2. Complete the survey by providing your answers to each question.
 3. Make sure to accept the terms and conditions at the end of the survey.
 4. Click the "Submit" button to send your responses.
-5. Once the survey is submitted, you will receive a message indicating that your responses have been successfully saved.
+
 
 ---
 
@@ -46,8 +46,8 @@ The data provided by survey participants is stored in a Firebase database in JSO
 
 ## Contributors 👥
 
-* **Luis David Gordon Rodríguez** - *Developer* - [Ldav05](https://github.com/Ldav05)
-* **Cristián Camilo Hernandez Rodríguez** - [cristian1263](https://github.com/cristian1263
+* **Luis David Gordon Rodríguez** - [Ldav05](https://github.com/Ldav05)
+* **Cristián Camilo Hernandez Rodríguez** - [cristian1263](https://github.com/cristian1263)
 
 ---
 
