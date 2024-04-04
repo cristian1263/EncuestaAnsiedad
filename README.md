@@ -6,10 +6,10 @@ This project consists of a survey designed to investigate the relationship betwe
 
 ## Table of Contents
 1. [Description](#description)
-2. [Technologies Used](#technologies-used-🖥️)
-3. [Execution Instructions](#execution-instructions-🚀)
+2. [Technologies Used](#description)
+3. [Execution Instructions](#description)
 4. [Data Storage](#data-storage)
-5. [Contributors](#contributors-👥)
+5. [Contributors](#data-storage)
 
 ---
 
