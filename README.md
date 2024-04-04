@@ -1,48 +1,55 @@
-##### Español
-## Encuesta de Investigación sobre Ansiedad y Calidad del Sueño 👩‍🔬🛌
-
-Este proyecto consiste en una encuesta diseñada para investigar la relación entre la ansiedad y la calidad del sueño en estudiantes universitarios durante el segundo semestre de 2024 en una universidad privada. La encuesta recopila datos sobre diferentes síntomas de ansiedad y su intensidad percibida, así como también información básica del participante.
-
-### Tecnologías Utilizadas 🖥️
-
-- HTML5
-- CSS3
-- JavaScript (jQuery)
-
-### Instrucciones de Ejecución 🚀
-
-1. Abre el archivo `index.html` en tu navegador web.
-2. Completa la encuesta proporcionando tus respuestas a cada pregunta.
-3. Asegúrate de aceptar los términos y condiciones al final de la encuesta.
-4. Haz clic en el botón "Enviar" para enviar tus respuestas.
-5. ¡Listo! El resultado de la encuesta se mostrará en formato JSON.
-
-### Colaboradores 👥
-
-Este proyecto ha sido desarrollado por CH & LG.
-
----
-
-##### Inglés
-## Research Survey on Anxiety and Sleep Quality 👩‍🔬🛌
+# Research Survey on Anxiety and Sleep Quality 👩‍🔬🛌
 
 This project consists of a survey designed to investigate the relationship between anxiety and sleep quality in university students during the second semester of 2024 at a private university. The survey collects data on different anxiety symptoms and their perceived intensity, as well as basic participant information.
 
-### Technologies Used 🖥️
+---
 
-- HTML5
-- CSS3
-- JavaScript (jQuery)
+## Table of Contents
+1. [Description](#description)
+2. [Technologies Used](#technologies-used)
+3. [Execution Instructions](#execution-instructions)
+4. [Data Storage](#data-storage)
+5. [Contributors](#contributors)
 
-### Execution Instructions 🚀
+---
 
-1. Open the `index.html` file in your web browser.
+## Description
+
+The survey consists of a series of questions related to anxiety symptoms and sleep quality. Participants must provide their answers by selecting the options that best fit their situation.
+
+---
+
+## Technologies Used 🖥️
+
+- **HTML5:** Used for the structure and content of the web page.
+- **CSS3:** Used to style and visually format the survey.
+- **JavaScript (jQuery):** Used for the interactivity and functionality of the survey.
+- **Firebase:** Used to store the collected data in JSON format.
+
+---
+
+## Execution Instructions 🚀
+
+1. Open the `index.html` file in your preferred web browser.
 2. Complete the survey by providing your answers to each question.
 3. Make sure to accept the terms and conditions at the end of the survey.
-4. Click the "Submit" button to submit your responses.
-5. Voila! The survey result will be displayed in JSON format.
+4. Click the "Submit" button to send your responses.
+5. Once the survey is submitted, you will receive a message indicating that your responses have been successfully saved.
 
-### Contributors 👥
+---
 
-This project has been developed by CH & LG.
+## Data Storage
+
+The data provided by survey participants is stored in a Firebase database in JSON format. This allows for the collection and subsequent analysis of the data to obtain relevant information about the relationship between anxiety and sleep quality in university students.
+
+---
+
+## Contributors 👥
+
+* **Luis David Gordon Rodríguez** - *Developer* - [Ldav05](https://github.com/Ldav05)
+* **Cristián Camilo Hernandez Rodríguez** - [cristian1263](https://github.com/cristian1263
+
+---
+
+Thank you for participating in our survey!
 
